@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+
+
+{% block title %}
+Write your Note.
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="container mx-auto col-6 border border-warning my-3 rounded">
+    <h1>Update Data.</h1>
+    <form method = "POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class="btn btn-warning my-3">Submit</button>
+      </form>
+
+</div>
+
+<div class="mx-auto col-1">
+  <a href="{% url 'data' %}" class = "btn btn-warning ">View your Task</a>
+</div>
+
+{% endblock body %}

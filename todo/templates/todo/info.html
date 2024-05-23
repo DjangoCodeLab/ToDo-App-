@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+
+
+{% block title %}
+Write your Note.
+{% endblock title %}
+
+
+{% block body %}
+{% for i in item_list %}
+<div class="container">
+    <div class="card m-3 row">
+        <div class="card-body col">
+          <h5 class="card-title">{{i.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{i.date}}</h6>
+          <p class="card-text">{{i.details}}</p>
+          
+        </div>
+        <a href="delete_data/{{i.id}} " class = 'btn btn-outline-danger'> Delete </a>
+        <a href=" {% url "update_data" i.id %} " class = 'btn btn-outline-info'> Update </a>
+        
+    </div>
+</div>
+
+{% endfor %}
+<div class="mx-auto col-1">
+    <a href="{% url 'todo' %}" class = "btn btn-warning ">Add more Task</a>
+</div>
+
+
+{% endblock body %}

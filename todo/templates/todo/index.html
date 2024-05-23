@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+
+
+{% block title %}
+Write your Note.
+{% endblock title %}
+
+
+{% block body %}
+<div class="alert alert-warning alert-dismissible  rounded m-3 fade show" role="alert">
+  <strong>Hello!</strong> {{request.user}} Welcome to the Todo website you can add your daily notes.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<div class="container mx-auto col-6 border border-warning my-3 rounded">
+    <form method = "POST">
+        {% csrf_token %}
+        {{forms}}
+        <button type="submit" class="btn btn-warning my-3">Submit</button>
+      </form>
+
+</div>
+
+<div class="mx-auto col-1">
+  <a href="{% url 'data' %}" class = "btn btn-warning ">View your Task</a>
+</div>
+
+
+
+
+{% endblock body %}
